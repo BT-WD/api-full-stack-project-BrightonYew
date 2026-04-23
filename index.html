@@ -1,11 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Full Stack Project</title>
+    <meta charset="utf-8" />
+    <title>Pokémon Database</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400&family=Fredoka+One&family=Questrial&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="public/style.css" />
+    <script
+      defer
+      src="https://kit.fontawesome.com/e918d10e90.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="public/helpers.js"></script>
   </head>
   <body>
-    <!-- You code goes here-->
+    <header>
+      <h1 id="appTitle">Pokémon Database</h1>
+    </header>
+    <form id="genreForm">
+      <label>Apply a filter:</label>
+      <input type="text" name="inputField"> 
+    </form>
+    <button id="playBtn">Search</button>
+    <div id="Monlist">
+      <div id="moviePoster"></div>
+      <div id="movieText"></div>
+    </div>
+      <script src="public/helpers.js"></script>
+      <script src="public/script.js"></script>
   </body>
 </html>
