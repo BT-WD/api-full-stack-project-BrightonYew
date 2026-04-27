@@ -15,7 +15,7 @@
       src="https://kit.fontawesome.com/e918d10e90.js"
       crossorigin="anonymous"
     ></script>
-    <script defer src="public/helpers.js"></script>
+    <!--- <script defer src="public/helpers.js"></script> -->
   </head>
   <body>
     <header>
@@ -23,13 +23,16 @@
     </header>
     <form id="genreForm">
       <label>Apply a filter:</label>
-      <input type="text" name="inputField"> 
+      <input type="text" id="inputField" name="inputField">
     </form>
     <button id="playBtn">Search</button>
     <div id="Monlist">
-      <div id="moviePoster"></div>
-      <div id="movieText"></div>
-    </div>
+      <div id="MonCard">
+      <div id="MonImage"></div>
+      <div id="MonName"></div>
+      <div id="MonType"></div>
+      <div id="MonMoves"></div>
+      </div>
       <script src="public/helpers.js"></script>
       <script src="public/script.js"></script>
   </body>

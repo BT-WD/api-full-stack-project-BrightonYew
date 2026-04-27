@@ -34,10 +34,8 @@ body {
     font-family: 'Fredoka One', sans-serif;
 }
 
-#movieInfo {
-    width:  65%;
-    margin:  32px auto;
-}
+#Monlist { text-align: center; width: 65%; margin: 32px auto; font-family: 'Staatliches', sans-serif; font-size: 20px; }
+
 
 #movieInfo:after {
     content:  "";
@@ -45,26 +43,18 @@ body {
     clear:  both;
 }
 
-#moviePoster, #movieText {
-    width:  50%;
-    float:  left;
-}
 
-img#moviePoster {
+img#MonImage {
     width:  100%;
     height:  auto;
     display:  block;
     margin:  auto;
 }
 
-#movieText {
+#MonName {
     font-family: 'Questrial';
     color: #FEFBEA;
     line-height: 1.25;
-}
-
-#movieTitle, #movieOverview {
-    padding:  32px;
 }
 
 #playBtn {
@@ -89,25 +79,61 @@ select {
     height: auto;
 }
 
-#likeOrDislikeBtns {
+#MonCard {
+    width: 65%;
+    margin: 32px auto;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "image name"
+        "type type"
+        "moves moves";
+
+    gap: 20px;
+    padding: 20px;
+
+    background-color: #2f2f2f;
+    border-radius: 15px;
+}
+
+#MonImage {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#MonName {
+    grid-area: name;
+    font-family: 'Staatliches', sans-serif;
+    font-size: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#MonType {
+    grid-area: type;
+    font-family: 'Questrial', sans-serif;
+    color: #ffd86b;
     text-align: center;
-    margin: 0px auto;  
+    font-size: 22px;
 }
 
-#likeBtn, #dislikeBtn {
-    padding: 15px 25px;
-    font-size: 25px;
-    border-radius: 12px;
-    border-style: none;
-    cursor:  pointer;
+#MonMoves {
+    grid-area: moves;
+    font-family: 'Questrial', sans-serif;
+    color: #ffffff;
+    font-size: 16px;
 }
 
-#likeBtn {
-    background-color: #249e57;
-    color: darkgreen;
+#MonImage img {
+    width: 150px;
+    height: auto;
 }
 
-#dislikeBtn {
-    background-color: #c74a4a;
-    color: #910000;
+#MonImage, #MonName, #MonType, #MonMoves {
+    margin: 0;
 }
