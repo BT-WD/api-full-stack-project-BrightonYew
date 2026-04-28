@@ -22,17 +22,25 @@
       <h1 id="appTitle">Pokémon Database</h1>
     </header>
     <form id="genreForm">
+      <label>To use, type a filter (pokemon, ability, type, or move), followed by an underscore and name</label>
       <label>Apply a filter:</label>
       <input type="text" id="inputField" name="inputField">
     </form>
     <button id="playBtn">Search</button>
-    <div id="Monlist">
-      <div id="MonCard">
-      <div id="MonImage"></div>
-      <div id="MonName"></div>
-      <div id="MonType"></div>
-      <div id="MonMoves"></div>
-      </div>
+<div id="Monlist">
+  <div id="HistoryCard">
+    <div id="History"></div>
+  </div>
+
+  <div id="Results"></div>
+
+  <div id="MonCard">
+    <div id="MonImage"></div>
+    <div id="MonName"></div>
+    <div id="MonType"></div>
+    <div id="MonMoves"></div>
+  </div>
+</div>
       <script src="public/helpers.js"></script>
       <script src="public/script.js"></script>
   </body>

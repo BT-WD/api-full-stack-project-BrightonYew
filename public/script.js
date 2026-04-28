@@ -4,7 +4,7 @@ const playBtn = document.getElementById("playBtn");
 const getMonList = async (filter, name) => {
   let endpoint = "";
 
-  if (filter === "type") endpoint = "type/";
+  if (filter === "type") endpoint = "type/"; //depending on the filter name, use a different endpoint
   else if (filter === "ability") endpoint = "ability/";
   else if (filter === "move") endpoint = "move/";
   else throw new Error("Invalid filter");
@@ -15,15 +15,15 @@ const getMonList = async (filter, name) => {
     const response = await fetch(url);
     const json = await response.json();
 
-    let list = [];
+    let list = []; //this is the pokemon list that contains all the pokemon that fit the filter
 
     if (filter === "type" || filter === "ability") {
       list = json.pokemon.map(p => p.pokemon.name);
-    } else if (filter === "move") {
+    } else if (filter === "move") { //move uses a different name 
       list = json.learned_by_pokemon.map(p => p.name);
     }
 
-    return list;
+    return list; //sent to be processed of duplicates
   } catch (err) {
     console.log(err);
     return [];
@@ -42,7 +42,7 @@ const getMonData = async (name) => {
 
     const data = await response.json();
 
-    // Extract what you need
+    // Extract the pokemon info
     const monData = {
       name: data.name,
 
@@ -61,37 +61,29 @@ const getMonData = async (name) => {
   }
 };
 
-const showMons = async () => { //24
-  const Monlist = document.getElementById("Monlist");
-
-  const daList = await getMonList()
-
-  displayInfo(await daList)
-}
-
-//getMonList("ability", "intimidate");
 
 const doEverything = async () => {
-  const input = document.getElementById("inputField").value.trim();
-  const filters = input.split(" ");
+  const input = document.getElementById("inputField").value.trim(); //read the input field
+  updateHistory(input)
+  const filters = input.split(" "); //split the filters into a list to be processed 
 
-  const allLists = [];
+  const allLists = []; //array list of arraylist, containing all pokemon for all filters
 
   for (let item of filters) {
     const index = item.indexOf("_");
 
-    const filter = item.substring(0, index);
-    const name = item.substring(index + 1);
+    const filter = item.substring(0, index); //get the filter
+    const name = item.substring(index + 1); //get the name
 
-    // special case: single Pokémon lookup
+    //display Pokemon info if that is the filter
     if (filter === "pokemon") {
       const mondata = await getMonData(name);
       displayMonInfo(mondata);
-      return;
+      return; //end this function
     }
 
     const list = await getMonList(filter, name);
-    allLists.push(list);
+    allLists.push(list); //add the arraylist of arraylist
   }
 
   const finalList = findDuplicates(allLists);

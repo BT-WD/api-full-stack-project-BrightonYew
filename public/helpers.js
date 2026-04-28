@@ -1,11 +1,11 @@
 const displayInfo = (names) => {
-  const Monlist = document.getElementById("Monlist");
-  Monlist.innerHTML = "";
+  const results = document.getElementById("Results");
+  results.innerHTML = "";
 
   names.forEach(name => {
     const li = document.createElement("li");
     li.textContent = name;
-    Monlist.appendChild(li);
+    results.appendChild(li);
   });
 };
 
@@ -17,28 +17,31 @@ const displayMonInfo = (monData) => {
   const typeDiv = document.getElementById("MonType");
   const movesDiv = document.getElementById("MonMoves");
 
+  //const Monlist = document.getElementById("Monlist");
+  //Monlist.innerHTML = "";
+
   // Clear previous content
   imageDiv.innerHTML = "";
   nameDiv.innerHTML = "";
   typeDiv.innerHTML = "";
   movesDiv.innerHTML = "";
 
-  // 🖼️ Image
+  //Image
   const img = document.createElement("img");
   img.src = monData.image;
   img.alt = monData.name;
   imageDiv.appendChild(img);
 
-  // 🏷️ Name
+  //Name
   nameDiv.textContent = monData.name;
 
-  // 🔥 Types
-  typeDiv.textContent = "Types: " + monData.types.join(", ");
+  //Types
+  typeDiv.textContent = "Type(s): " + monData.types.join(", ");
 
-  // ⚔️ Moves (limit to avoid huge list)
+  //Moves
   const moveList = document.createElement("ul");
 
-  monData.moves.slice(0, 10).forEach(move => {
+  monData.moves.slice(0, 1000).forEach(move => { //create new lines
     const li = document.createElement("li");
     li.textContent = move;
     moveList.appendChild(li);
@@ -47,12 +50,6 @@ const displayMonInfo = (monData) => {
   movesDiv.appendChild(moveList);
 };
 
-
-const readInputField = () => {
-    const test = document.getElementById("inputField").value;
-    return test
-}
-
 const findDuplicates = (lists) => {
   if (lists.length === 0) return [];
 
@@ -60,3 +57,8 @@ const findDuplicates = (lists) => {
     acc.filter(name => curr.includes(name))
   );
 };
+
+const updateHistory = (query) => {
+  const history = document.getElementById("History");
+  history.append(query + "\n")
+}

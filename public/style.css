@@ -122,18 +122,21 @@ select {
     font-size: 22px;
 }
 
-#MonMoves {
-    grid-area: moves;
-    font-family: 'Questrial', sans-serif;
-    color: #ffffff;
-    font-size: 16px;
-}
 
-#MonImage img {
-    width: 150px;
-    height: auto;
-}
+#HistoryCard {
+    width: 20%;
+    margin: 32px auto;
+    display: grid;
 
-#MonImage, #MonName, #MonType, #MonMoves {
-    margin: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "image name"
+        "type type"
+        "moves moves";
+
+    gap: 20px;
+    padding: 20px;
+
+    background-color: #2f2f2f;
+    border-radius: 15px;
 }
