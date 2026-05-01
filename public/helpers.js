@@ -1,5 +1,19 @@
 const displayInfo = (names) => {
   const results = document.getElementById("Results");
+
+
+  const imageDiv = document.getElementById("MonImage");
+  const nameDiv = document.getElementById("MonName");
+  const typeDiv = document.getElementById("MonType");
+  const movesDiv = document.getElementById("MonMoves");
+
+
+  imageDiv.innerHTML = "";
+  nameDiv.innerHTML = "";
+  typeDiv.innerHTML = "";
+  movesDiv.innerHTML = "";
+
+
   results.innerHTML = "";
 
   names.forEach(name => {
@@ -16,9 +30,10 @@ const displayMonInfo = (monData) => {
   const nameDiv = document.getElementById("MonName");
   const typeDiv = document.getElementById("MonType");
   const movesDiv = document.getElementById("MonMoves");
+  const results = document.getElementById("Results");
 
   //const Monlist = document.getElementById("Monlist");
-  //Monlist.innerHTML = "";
+  results.innerHTML = "";
 
   // Clear previous content
   imageDiv.innerHTML = "";
@@ -60,5 +75,5 @@ const findDuplicates = (lists) => {
 
 const updateHistory = (query) => {
   const history = document.getElementById("History");
-  history.append(query + "\n")
+  history.append("\n" + query)
 }
