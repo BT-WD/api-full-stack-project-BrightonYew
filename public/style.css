@@ -81,7 +81,7 @@ select {
 
 #MonCard {
     width: 65%;
-    margin: 32px auto;
+    margin: 1px auto;
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -121,6 +121,12 @@ select {
     text-align: center;
     font-size: 22px;
 }
+
+#MonMoves {
+    color: white;;
+}
+
+
 
 
 #HistoryCard {
